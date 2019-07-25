@@ -1,7 +1,7 @@
 module.exports = {
   siteMetadata: {
     title: `Jonathan Funk`,
-    description: `Web developer based in Vancouver, BC.`,
+    description: `Web developer based in Vancouver, BC`,
     author: `Jonathan Funk`,
   },
   plugins: [

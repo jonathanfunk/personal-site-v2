@@ -1,20 +1,44 @@
 import React from "react"
+import { useStaticQuery, graphql } from "gatsby"
 import { Link } from "gatsby"
-import Hero from "../components/Hero
-
+import Hero from "../components/Hero"
 import Layout from "../components/Layout"
-import Image from "../components/Image"
 import SEO from "../components/SEO"
 
-const IndexPage = () => (
-  <Layout>
-    <SEO title="Home" />
-    <Hero headline="Jonathan Funk" />
-    <section></section>
-    <section></section>
-    <section></section>
-    <section></section>
-  </Layout>
-)
+const IndexPage = () => {
+  const { desktop, site } = useStaticQuery(graphql`
+    query {
+      desktop: file(relativePath: { eq: "jellyfish-background.jpg" }) {
+        childImageSharp {
+          fluid(quality: 90, maxWidth: 1920) {
+            ...GatsbyImageSharpFluid_withWebp
+          }
+        }
+      }
+      site {
+        siteMetadata {
+          title
+          description
+          author
+        }
+      }
+    }
+  `)
+
+  return (
+    <Layout>
+      <SEO title="Home" />
+      <Hero
+        imageData={desktop}
+        headline={site.siteMetadata.author}
+        subheadline={site.siteMetadata.description}
+      />
+      <section></section>
+      <section></section>
+      <section></section>
+      <section></section>
+    </Layout>
+  )
+}
 
 export default IndexPage
