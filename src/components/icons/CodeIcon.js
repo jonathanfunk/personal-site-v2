@@ -1,6 +1,6 @@
 import React from "react"
 
-const codeIcon = () => (
+const CodeIcon = () => (
   <svg
     width="2048"
     height="1792"
@@ -11,4 +11,4 @@ const codeIcon = () => (
   </svg>
 )
 
-export default codeIcon
+export default CodeIcon

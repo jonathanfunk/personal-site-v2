@@ -1,8 +1,7 @@
 import { Link } from "gatsby"
 import PropTypes from "prop-types"
 import React from "react"
-import CodeIcon from "./icons/code-icon"
-import logo from "./../images/code.svg"
+import CodeIcon from "./icons/CodeIcon"
 
 const Header = ({ siteTitle }) => (
   <header>
