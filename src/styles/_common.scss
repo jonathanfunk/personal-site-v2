@@ -13,3 +13,19 @@ section {
   padding: 0 1.5rem;
   margin: 0 auto;
 }
+
+.full-width {
+  max-width: 100vw;
+}
+
+.grayscale-hover {
+  &:hover {
+    img {
+      filter: grayscale(100);
+      transition: filter 1s ease;
+      &:hover {
+        filter: grayscale(0);
+      }
+    }
+  }
+}

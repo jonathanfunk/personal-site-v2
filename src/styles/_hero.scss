@@ -1,5 +1,5 @@
 .hero {
-  height: 300px;
+  min-height: 300px;
   background-size: cover;
   background-attachment: fixed;
   color: white;
@@ -10,12 +10,12 @@
   position: relative;
   @include tablet {
     background-size: cover;
-    height: 400px;
+    min-height: 400px;
   }
   @include desktop {
     background-attachment: fixed;
     background-size: cover;
-    height: 100vh;
+    min-height: 100vh;
   }
   h1 {
     text-align: center;
@@ -23,7 +23,8 @@
   }
   p {
     text-align: center;
-    font-size: 2rem;
+    font-size: 1.8rem;
+    line-height: 1.1;
     margin-bottom: 0;
   }
 }

@@ -1,0 +1,15 @@
+ul.what-i-do {
+  @include tablet {
+    display: flex;
+  }
+  li {
+    width: 100%;
+    padding: 1rem;
+  }
+}
+img {
+  border-radius: 100%;
+  display: block;
+  margin: 0 auto;
+  margin-bottom: 1rem;
+}
