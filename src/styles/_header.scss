@@ -11,6 +11,11 @@ header {
     align-items: center;
     justify-content: space-between;
   }
+  a {
+    &:hover {
+      color: #fff;
+    }
+  }
 }
 
 .logo {
@@ -41,15 +46,25 @@ header {
   width: 100vw;
   height: 100vh;
   background: #fff;
-  padding-top: 3rem;
   transform: translateY(-100%);
   transition: all 1s ease;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   li {
     width: 100%;
     text-align: center;
     padding: 1rem;
     text-transform: uppercase;
-    letter-spacing: 1px;
+    letter-spacing: 2px;
+  }
+  @include tablet {
+    position: inherit;
+    transform: translateY(0);
+    background: transparent;
+    width: auto;
+    height: auto;
+    flex-direction: row;
   }
 }
 

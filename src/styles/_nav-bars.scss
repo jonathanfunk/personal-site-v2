@@ -2,6 +2,9 @@
   width: $bar-width;
   height: $bar-height + $bar-spacing * 2;
   cursor: pointer;
+  @include tablet {
+    display: none;
+  }
 }
 
 .bar,
