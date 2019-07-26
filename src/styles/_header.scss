@@ -9,6 +9,7 @@ header {
     height: 100%;
     display: flex;
     align-items: center;
+    justify-content: space-between;
   }
 }
 
@@ -16,7 +17,7 @@ header {
   svg {
     width: 2rem;
     height: auto;
-    fill: #fff;
+    fill: #b3b3b3;
   }
 }
 
@@ -30,9 +31,28 @@ header {
       color: $color__link-hover;
     }
   }
-  .logo {
-    svg {
-      fill: $color__link;
-    }
+}
+
+.primary-menu {
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: -1;
+  width: 100vw;
+  height: 100vh;
+  background: #fff;
+  padding-top: 3rem;
+  transform: translateY(-100%);
+  transition: all 1s ease;
+  li {
+    width: 100%;
+    text-align: center;
+    padding: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
   }
+}
+
+.expanded {
+  transform: translateY(0);
 }

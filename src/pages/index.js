@@ -82,6 +82,11 @@ const IndexPage = () => {
           <h2 className="center">Projects</h2>
         </div>
       </section>
+      <section className="clients" id="clients">
+        <div className="container">
+          <h2 className="center">Feature Clients</h2>
+        </div>
+      </section>
       <section className="contact" id="contact">
         <div className="container">
           <h2 className="center">Contact</h2>
