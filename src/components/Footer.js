@@ -4,7 +4,16 @@ const Footer = () => {
   return (
     <footer>
       <div className="container">
-        <p> © {new Date().getFullYear()} Jonathan Funk</p>
+        <div className="site-info">
+          <p>Copyright © {new Date().getFullYear()} Jonathan Funk</p>
+        </div>
+        <div className="social-icons">
+          <ul>
+            <li>1</li>
+            <li>1</li>
+            <li>1</li>
+          </ul>
+        </div>
       </div>
     </footer>
   )

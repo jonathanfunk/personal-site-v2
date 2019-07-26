@@ -54,7 +54,11 @@ const IndexPage = () => {
             graphics operator at a print shop. After working there for a couple
             years, I decided to catch up with what I’ve been missing and took
             the Full-stack Web Development Program at RED Academy in September
-            2016. I’m currently working at RTOWN as a Web Developer/Designer.
+            2016. I’m currently working at{" "}
+            <a href="https://rtown.ca" target="_blank">
+              RTOWN
+            </a>{" "}
+            as a Web Developer/Designer.
           </p>
           <h2 className="center">What I do</h2>
           <ul className="what-i-do grayscale-hover">

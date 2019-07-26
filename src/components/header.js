@@ -1,26 +1,41 @@
+import React, { Component } from "react"
 import { Link } from "gatsby"
-import PropTypes from "prop-types"
-import React from "react"
 import CodeIcon from "./icons/CodeIcon"
 
-const Header = ({ siteTitle }) => (
-  <header>
-    <div className="container">
-      <div className="logo">
-        <Link to="/">
-          <CodeIcon />
-        </Link>
-      </div>
-    </div>
-  </header>
-)
+class Header extends Component {
+  state = {
+    scrollPositionTop: true,
+  }
 
-Header.propTypes = {
-  siteTitle: PropTypes.string,
-}
+  componentDidMount() {
+    window.addEventListener("scroll", this.handleScroll)
+  }
 
-Header.defaultProps = {
-  siteTitle: ``,
+  componentWillUnmount() {
+    window.removeEventListener("scroll", this.handleScroll)
+  }
+
+  handleScroll = () => {
+    if (window.scrollY > 0) {
+      this.setState({ scrollPositionTop: false })
+    } else {
+      this.setState({ scrollPositionTop: true })
+    }
+  }
+
+  render() {
+    return (
+      <header className={!this.state.scrollPositionTop ? "nav-inverse" : ""}>
+        <div className="container">
+          <div className="logo">
+            <Link to="/">
+              <CodeIcon />
+            </Link>
+          </div>
+        </div>
+      </header>
+    )
+  }
 }
 
 export default Header
