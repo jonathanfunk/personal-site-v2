@@ -3,13 +3,11 @@ import LinkedinIcon from "./icons/LinkedinIcon"
 import GithubIcon from "./icons/GithubIcon"
 import EnvelopeIcon from "./icons/EnvelopeIcon"
 
-const Footer = () => {
+const Contact = () => {
   return (
-    <footer>
+    <section className="contact" id="contact">
       <div className="container">
-        <div className="site-info">
-          <p>Copyright © {new Date().getFullYear()} Jonathan Funk</p>
-        </div>
+        <h2 className="center">Contact</h2>
         <div className="social-icons">
           <ul>
             <li>
@@ -33,8 +31,8 @@ const Footer = () => {
           </ul>
         </div>
       </div>
-    </footer>
+    </section>
   )
 }
 
-export default Footer
+export default Contact
