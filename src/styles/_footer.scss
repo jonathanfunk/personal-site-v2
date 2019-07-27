@@ -29,4 +29,11 @@ footer {
     flex-wrap: wrap;
     justify-content: space-around;
   }
+  a {
+    svg {
+      fill: $color__link;
+      height: 1rem;
+      width: auto;
+    }
+  }
 }

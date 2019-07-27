@@ -14,15 +14,14 @@ header {
   a {
     &:hover {
       color: #fff;
+      svg {
+        fill: #fff;
+      }
     }
-  }
-}
-
-.logo {
-  svg {
-    width: 2rem;
-    height: auto;
-    fill: #b3b3b3;
+    svg {
+      width: 2rem;
+      height: auto;
+    }
   }
 }
 
@@ -34,6 +33,9 @@ header {
     color: $color__link;
     &:hover {
       color: $color__link-hover;
+      svg {
+        fill: $color__link-hover;
+      }
     }
   }
 }
