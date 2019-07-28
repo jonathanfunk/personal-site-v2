@@ -1,9 +1,39 @@
 import React from "react"
-import websiteDesign from "./../images/website-design.jpg"
-import websiteDevelopment from "./../images/website-development.jpg"
-import webAppDevelopment from "./../images/web-app-development.jpg"
+import { useStaticQuery, graphql } from "gatsby"
+import Img from "gatsby-image"
 
-const About = () => {
+// import websiteDesign from "./../images/website-design.jpg"
+// import websiteDevelopment from "./../images/website-development.jpg"
+// import webAppDevelopment from "./../images/web-app-development.jpg"
+
+const About = props => {
+  const data = useStaticQuery(graphql`
+    query {
+      websiteDesign: file(relativePath: { eq: "website-design.jpg" }) {
+        childImageSharp {
+          fluid(maxWidth: 200) {
+            ...GatsbyImageSharpFluid
+          }
+        }
+      }
+      websiteDevelopment: file(
+        relativePath: { eq: "website-development.jpg" }
+      ) {
+        childImageSharp {
+          fluid(maxWidth: 200) {
+            ...GatsbyImageSharpFluid
+          }
+        }
+      }
+      webAppDevelopment: file(relativePath: { eq: "web-app-development.jpg" }) {
+        childImageSharp {
+          fluid(maxWidth: 200) {
+            ...GatsbyImageSharpFluid
+          }
+        }
+      }
+    }
+  `)
   return (
     <section className="about" id="about">
       <div className="container">
@@ -31,15 +61,34 @@ const About = () => {
         <h2 className="center">What I do</h2>
         <ul className="what-i-do grayscale-hover">
           <li>
-            <img src={websiteDesign} alt="Website Design" />
+            <div className="image-wrapper">
+              <Img
+                fluid={data.websiteDesign.childImageSharp.fluid}
+                objectFit="contain"
+                alt="Website Design"
+              />
+            </div>
             <h3 className="center">Website Design</h3>
           </li>
           <li>
-            <img src={websiteDevelopment} alt="Website Development" />
+            <div className="image-wrapper">
+              <Img
+                fluid={data.websiteDevelopment.childImageSharp.fluid}
+                objectFit="contain"
+                alt="Website Development"
+              />
+            </div>
+
             <h3 className="center">Website Development</h3>
           </li>
           <li>
-            <img src={webAppDevelopment} alt="Web App Development" />
+            <div className="image-wrapper">
+              <Img
+                fluid={data.webAppDevelopment.childImageSharp.fluid}
+                objectFit="contain"
+                alt="Web App Development"
+              />
+            </div>
             <h3 className="center">Web App Development</h3>
           </li>
         </ul>
