@@ -13,3 +13,19 @@ img {
   margin: 0 auto;
   margin-bottom: 1rem;
 }
+
+.contact {
+  .social-icons {
+    width: 100%;
+    max-width: 500px;
+    margin: 0 auto;
+    ul {
+      display: flex;
+      justify-content: space-between;
+    }
+    svg {
+      width: 1.5rem;
+      height: auto;
+    }
+  }
+}

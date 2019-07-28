@@ -1,0 +1,42 @@
+/* Buttons */
+
+button,
+input[type="button"],
+input[type="reset"],
+input[type="submit"] {
+  border: none;
+  background: $color__link;
+  width: 100%;
+  height: 50px;
+  line-height: 50px;
+  transition: all 1s ease;
+  &:hover {
+    background: $color__link-hover;
+    color: $color__link;
+  }
+}
+
+/* Fields */
+
+input[type="text"],
+input[type="email"],
+input[type="url"],
+input[type="password"],
+input[type="search"],
+textarea {
+  color: #666;
+  border: 0;
+  border-bottom: 1px solid $color__link;
+  width: 100%;
+  padding: 1rem;
+  &:focus {
+    outline: none;
+    color: $color__link-hover;
+    border-color: $color__link-hover;
+  }
+}
+
+textarea {
+  width: 100%;
+  border: 1px solid $color__link;
+}
