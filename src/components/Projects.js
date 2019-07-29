@@ -28,7 +28,7 @@ const Projects = () => {
           {data.allMarkdownRemark.edges.map(edge => {
             return (
               <li>
-                <Link to={edge.node.fields.slug}>
+                <Link to={`/${edge.node.fields.slug}`}>
                   <h3>{edge.node.frontmatter.title}</h3>
                 </Link>
               </li>

@@ -28,3 +28,10 @@
     margin-bottom: 0;
   }
 }
+
+.small {
+  min-height: 300px;
+  @include tablet {
+    min-height: 400px;
+  }
+}

@@ -1,7 +1,8 @@
 import React from "react"
-import { graphql } from "gatsby"
-import Layout from "./../components/Layout"
-import Hero from "./../components/Hero"
+import { graphql, Link } from "gatsby"
+import _ from "lodash"
+import Layout from "../components/Layout"
+import Hero from "../components/Hero"
 
 export const query = graphql`
   query($slug: String!) {
@@ -15,13 +16,14 @@ export const query = graphql`
             }
           }
         }
+        tags
       }
       html
     }
   }
 `
 
-const project = props => (
+const Project = props => (
   <Layout>
     <Hero
       imageData={props.data.markdownRemark.frontmatter.featuredImage}
@@ -33,9 +35,19 @@ const project = props => (
         <div
           dangerouslySetInnerHTML={{ __html: props.data.markdownRemark.html }}
         ></div>
+        <h2 className="center">Technology</h2>
+        <ul className="technology">
+          {props.data.markdownRemark.frontmatter.tags.map((tag, i) => {
+            return (
+              <li key={i}>
+                <Link to={`/tags/${_.kebabCase(tag)}`}>{tag}</Link>
+              </li>
+            )
+          })}
+        </ul>
       </div>
     </section>
   </Layout>
 )
 
-export default project
+export default Project
