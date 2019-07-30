@@ -2,6 +2,7 @@ import React from "react"
 import { Link, graphql } from "gatsby"
 import Layout from "../components/Layout"
 import Hero from "./../components/Hero"
+import ProjectCard from "./../components/ProjectCard"
 
 export const pageQuery = graphql`
   query($tag: String) {
@@ -13,6 +14,13 @@ export const pageQuery = graphql`
           }
           frontmatter {
             title
+            featuredImage {
+              childImageSharp {
+                fluid(quality: 90, maxWidth: 650) {
+                  ...GatsbyImageSharpFluid_withWebp
+                }
+              }
+            }
           }
         }
       }
@@ -33,15 +41,18 @@ const Tags = ({ pageContext, data }) => {
     <Layout>
       <Hero imageData={data.desktop} headline={tag} smallHeight={true} />
       <section>
-        <div className="container">
-          <ul>
+        <div className="container full-width">
+          <ul className="project-list grayscale-hover">
             {edges.map(({ node }) => {
               const { slug } = node.fields
-              const { title } = node.frontmatter
+              const { title, featuredImage } = node.frontmatter
               return (
-                <li key={slug}>
-                  <Link to={slug}>{title}</Link>
-                </li>
+                <ProjectCard
+                  title={title}
+                  slug={slug}
+                  image={featuredImage.childImageSharp.fluid}
+                  key={slug}
+                />
               )
             })}
           </ul>

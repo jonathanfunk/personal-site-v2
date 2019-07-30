@@ -1,3 +1,13 @@
+.project-list {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-gap: 20px;
+  @include tablet {
+    grid-template-columns: repeat(auto-fill, minmax(450px, 1fr));
+    grid-gap: 40px;
+  }
+}
+
 .technology {
   li {
     display: inline-block;
@@ -16,4 +26,10 @@
       }
     }
   }
+}
+
+.project-pagination {
+  display: flex;
+  justify-content: space-between;
+  padding: 2rem 0;
 }

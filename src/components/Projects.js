@@ -1,5 +1,6 @@
 import React from "react"
 import { useStaticQuery, graphql, Link } from "gatsby"
+import ProjectCard from "./ProjectCard"
 
 const Projects = () => {
   const data = useStaticQuery(graphql`
@@ -9,6 +10,13 @@ const Projects = () => {
           node {
             frontmatter {
               title
+              featuredImage {
+                childImageSharp {
+                  fluid(quality: 90, maxWidth: 650) {
+                    ...GatsbyImageSharpFluid_withWebp
+                  }
+                }
+              }
             }
             fields {
               slug
@@ -19,19 +27,21 @@ const Projects = () => {
     }
   `)
 
-  console.log(data)
   return (
     <section className="projects" id="projects">
       <div className="container full-width">
         <h2 className="center">Projects</h2>
-        <ul className="project-list">
-          {data.allMarkdownRemark.edges.map(edge => {
+        <ul className="project-list grayscale-hover">
+          {data.allMarkdownRemark.edges.map(({ node }) => {
+            const { slug } = node.fields
+            const { title, featuredImage } = node.frontmatter
             return (
-              <li>
-                <Link to={`/${edge.node.fields.slug}`}>
-                  <h3>{edge.node.frontmatter.title}</h3>
-                </Link>
-              </li>
+              <ProjectCard
+                title={title}
+                slug={slug}
+                image={featuredImage.childImageSharp.fluid}
+                key={slug}
+              />
             )
           })}
         </ul>

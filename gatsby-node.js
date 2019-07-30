@@ -28,6 +28,7 @@ module.exports.createPages = async ({ graphql, actions }) => {
             }
             frontmatter {
               tags
+              title
             }
           }
         }
@@ -35,13 +36,19 @@ module.exports.createPages = async ({ graphql, actions }) => {
     }
   `)
 
+  const projects = res.data.allMarkdownRemark.edges
+
   //Create Project Details
-  res.data.allMarkdownRemark.edges.map(edge => {
+  projects.map((project, index) => {
+    const prev = index === 0 ? null : projects[index - 1].node
+    const next = index === projects.length - 1 ? null : projects[index + 1].node
     createPage({
       component: projectTemplate,
-      path: `/${edge.node.fields.slug}`,
+      path: `/${project.node.fields.slug}`,
       context: {
-        slug: edge.node.fields.slug,
+        slug: project.node.fields.slug,
+        prev,
+        next,
       },
     })
   })
@@ -49,7 +56,7 @@ module.exports.createPages = async ({ graphql, actions }) => {
   //Create Tag Pages
   let tags = []
   // Iterate through each post, putting all found tags into `tags`
-  _.each(res.data.allMarkdownRemark.edges, edge => {
+  _.each(projects, edge => {
     if (_.get(edge, "node.frontmatter.tags")) {
       tags = tags.concat(edge.node.frontmatter.tags)
     }
