@@ -18,6 +18,10 @@ section {
   max-width: 100vw;
 }
 
+.small-width {
+  max-width: 800px;
+}
+
 .grayscale-hover {
   &:hover {
     img {

@@ -7,6 +7,9 @@ const ProjectCard = ({ title, slug, image }) => {
     <li className="project-card">
       <Link to={`/${slug}`}>
         <Img fluid={image} alt={title} />
+        <div className="overlay">
+          <h3>{title}</h3>
+        </div>
       </Link>
     </li>
   )

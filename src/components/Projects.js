@@ -31,7 +31,7 @@ const Projects = () => {
     <section className="projects" id="projects">
       <div className="container full-width">
         <h2 className="center">Projects</h2>
-        <ul className="project-list grayscale-hover">
+        <ul className="project-list">
           {data.allMarkdownRemark.edges.map(({ node }) => {
             const { slug } = node.fields
             const { title, featuredImage } = node.frontmatter

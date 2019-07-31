@@ -68,11 +68,6 @@ class Header extends Component {
                 </Link>
               </li>
               <li>
-                <Link to="/#clients" onClick={this.removeToggleExpand}>
-                  Clients
-                </Link>
-              </li>
-              <li>
                 <Link to="/#contact" onClick={this.removeToggleExpand}>
                   Contact
                 </Link>

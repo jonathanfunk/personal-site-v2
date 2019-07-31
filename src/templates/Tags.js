@@ -42,7 +42,7 @@ const Tags = ({ pageContext, data }) => {
       <Hero imageData={data.desktop} headline={tag} smallHeight={true} />
       <section>
         <div className="container full-width">
-          <ul className="project-list grayscale-hover">
+          <ul className="project-list">
             {edges.map(({ node }) => {
               const { slug } = node.fields
               const { title, featuredImage } = node.frontmatter
