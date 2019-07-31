@@ -49,14 +49,14 @@ const Project = ({ data, pageContext }) => (
           <div>
             {pageContext.prev && (
               <Link to={`/${pageContext.prev.fields.slug}`}>
-                « {pageContext.prev.frontmatter.title}
+                ← {pageContext.prev.frontmatter.title}
               </Link>
             )}
           </div>
           <div>
             {pageContext.next && (
               <Link to={`/${pageContext.next.fields.slug}`}>
-                {pageContext.next.frontmatter.title} »
+                {pageContext.next.frontmatter.title} →
               </Link>
             )}
           </div>
