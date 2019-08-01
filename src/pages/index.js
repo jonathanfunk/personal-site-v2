@@ -29,7 +29,7 @@ const IndexPage = () => {
 
   return (
     <Layout>
-      <SEO title="Home" />
+      <SEO />
       <Hero
         imageData={desktop}
         headline={site.siteMetadata.author}

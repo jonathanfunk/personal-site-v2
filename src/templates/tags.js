@@ -1,6 +1,7 @@
 import React from "react"
 import { graphql } from "gatsby"
 import Layout from "../components/Layout"
+import SEO from "../components/SEO"
 import Hero from "../components/Hero"
 import ProjectCard from "../components/ProjectCard"
 
@@ -39,6 +40,7 @@ const Tags = ({ pageContext, data }) => {
   const { edges } = data.allMarkdownRemark
   return (
     <Layout>
+      <SEO title={tag} />
       <Hero imageData={data.desktop} headline={tag} smallHeight={true} />
       <section>
         <div className="container full-width">
